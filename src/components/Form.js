@@ -1,15 +1,19 @@
-import React, { Component, PropTypes } from "react";
+import React from "react";
 
-class Form extends Component {
-  render() {
-    return (
-      <form onSubmit={this.props.getWeather}>
-        <input type="text" name="city" placeholder="City..." />
-        <input type="text" name="country" placeholder="Country..." />
-        <button>Get Weather</button>
-      </form>
-    );
-  }
-}
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
 
-export default Form;
+const componentName = props => {
+  return (
+    <form onSubmit={props.getWeather}>
+      <FormControl required="true">
+        <TextField type="text" name="city" placeholder="City..." />
+        <TextField type="text" name="country" placeholder="Country..." />
+        <Button>Get Weather</Button>
+      </FormControl>
+    </form>
+  );
+};
+
+export default componentName;
