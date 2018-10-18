@@ -4,6 +4,9 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+
 const API_KEY = "f218609dddd8931b1f383bb02729eff4";
 
 class App extends React.Component {
@@ -49,16 +52,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
+        <Grid container>
+          <Grid item xs />
+          <Grid item xs={6}>
+            <Paper style={{ padding: 20, marginBottom: 30 }}>
+              <Titles />
+              <Form getWeather={this.getWeather} />
+            </Paper>
+            <Paper>
+              <Weather
+                temperature={this.state.temperature}
+                city={this.state.city}
+                country={this.state.country}
+                humidity={this.state.humidity}
+                description={this.state.description}
+                error={this.state.error}
+              />
+            </Paper>
+          </Grid>
+          <Grid item xs />
+        </Grid>
       </div>
     );
   }

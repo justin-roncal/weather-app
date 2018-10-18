@@ -1,7 +1,7 @@
 import React from "react";
 
 const Weather = props => (
-  <div>
+  <div style={props.style}>
     {props.city &&
       props && (
         <p>
